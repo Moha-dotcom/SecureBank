@@ -1,8 +1,11 @@
-import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import mysql from 'mysql2/promise';
 
-dotenv.config(); 
 
+
+dotenv.config({ path: "/Users/user/Desktop/SecureBank/.env" });
 
 export async function connectDB() {
     try {
@@ -17,6 +20,17 @@ export async function connectDB() {
         await connection.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME}`);
         await connection.changeUser({ database: process.env.DB_NAME });
 
+
+          await connection.query(`
+            CREATE TABLE IF NOT EXISTS users (
+                id CHAR(36) PRIMARY KEY,
+                name VARCHAR(100),
+                email VARCHAR(100) UNIQUE
+            )
+        `);
+
+        console.log("Ensured database and users table exist");
+
         console.log(`Using database '${process.env.DB_NAME}'`);
         return connection;
     } catch (err) {
@@ -24,3 +38,6 @@ export async function connectDB() {
         process.exit(1);
     }
 }
+
+
+
