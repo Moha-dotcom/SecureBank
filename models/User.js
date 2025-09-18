@@ -1,39 +1,27 @@
-// const {v4 : uuidv4} = require('uuid');
-import { v4 as uuidv4 } from 'uuid';
+// models/User.js
+import { v4 as uuidv4 } from "uuid";
 
- export class User {
-    constructor( name, email){
-        this.id = uuidv4();
-        this.name = name;
-        this.email = email;     
-    }
+export default class User {
+  #id = uuidv4();
+  name = "";
+  email = "";
+  password = "";
 
-    createUser(){
-        // Simulate saving to a database
-        console.log(`User ${this.name} with email ${this.email} created.`);
-    }
+  constructor(name, email, password) {
+    this.name = name;
+    this.email = email;
+    this.password = password;
+  }
 
-    updateUser(name, email){
-        this.name = name || this.name;
-        this.email = email || this.email;
-        console.log(`User ${this.id} updated to name: ${this.name}, email: ${this.email}`);
-    }
+  get id() {
+    return this.#id;
+  }
 
-    deleteUser(){
-        // Simulate deleting from a database
-        console.log(`User ${this.id} deleted.`);
-    }   
-
-
-
-    toJSON(){   
-        return {
-            id: this.id,
-            name: this.name,
-            email: this.email
-        }
-    }       
-
-
+  toJSON() {
+    return {
+      id: this.id,
+      name: this.name,
+      email: this.email
+    };
+  }
 }
-
