@@ -37,6 +37,7 @@ export default class UserService {
       const user = new User(name, email, hashedPassword, provider.location, provider.routing_number);
 
       // Insert into DB
+     
       return await UserRepo.insertUser(user);
 
     } catch (error) {
@@ -65,4 +66,20 @@ export default class UserService {
       throw error;
     }
   }
+
+
+  static async getAllUsers(){
+    try {
+      const users = await UserRepo.getAllUsers();
+      console.log(users)
+      return users;
+    } catch (error) {
+      logger.error(`Error fetching users: ${error.message}`);
+      throw error;  
+    }
+  }
+  
 }
+
+
+

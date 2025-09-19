@@ -28,10 +28,12 @@ export default class UserRepo {
         VALUES (?, ?, ?, ?, ?, ?)
       `;
       await db.query(sql, [
+        
         user.id,
         user.name,
-        user.email,
         user.password,
+        user.email,
+        user.location,
         user.getAccountNum(),
         user.getRoutingNumber()
       ]);
@@ -54,4 +56,18 @@ export default class UserRepo {
     const [rows] = await db.query("SELECT * FROM providers WHERE location = ?", [location]);
     return rows.length > 0 ? rows[0] : null;
   }
+
+  static async getAllUsers() {
+    try {
+      const db = await connectDB();
+      const [rows] = await db.query("SELECT id, name, email, account_number, routing_number FROM users");
+      // console.log(rows)
+      logger.info(`Fetching all users, count: ${rows.length}`);
+      return rows;
+    } catch (error) {
+      logger.error(`DB error fetching users: ${error.message}`);
+      throw error;
+    }
+    
+    }
 }
