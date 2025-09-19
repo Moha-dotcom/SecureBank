@@ -1,7 +1,7 @@
 import Joi from 'joi';
 
 
-export default function UserValidation(name, email, password) {
+export default function UserValidation(name, email, password, location) {
       const scheme = Joi.object({
             name: Joi.string().min(3).max(30).required().messages({
                 'string.base': `"name" should be a type of 'text'`,
@@ -21,6 +21,12 @@ export default function UserValidation(name, email, password) {
                 'string.email': `"email" must be a valid email`,
                 'string.empty': `"email" cannot be an empty field`,
                 'any.required': `"email" is a required field`
+            }),
+            location: Joi.string().min(5).max(30).messages({
+                'string.base': `"location" should be a type of 'text'`,
+                'string.empty': `"location" cannot be an empty field`,
+                'string.min': `"location" should have a minimum length of {#limit}`,
+                'string.max': `"location" should have a maximum length of {#limit}`,
             })
         });
 
