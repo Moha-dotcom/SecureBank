@@ -1,4 +1,4 @@
-import { loginUser, getUsers, registerUser } from  '././src/services/userService.js';
+import { loginUser, getUsers, registerUser } from  './src/services/userService.js';
 
 
 
@@ -12,20 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = emailInput.value;
-    console.log(email)
     const password = passwordInput.value;
-    console.log(password)
+    
 
     try {
       const result = await loginUser(email, password);
-      console.log('Login success:', result);
-    //   window.location.href = "http://google.com"
+      return result
     } catch (err) {
       console.error('Login failed:', err.message);
 
     }
 
 
+   
 
 
     

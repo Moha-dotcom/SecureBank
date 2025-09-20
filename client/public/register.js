@@ -4,7 +4,7 @@ import { loginUser, getUsers, registerUser } from  './src/services/userService.j
 document.addEventListener('DOMContentLoaded', () => {
   const emailInput = document.querySelector('#emailaddress');
   const passwordInput = document.querySelector('#password'); 
-  const nameInput = document.querySelector('#name');
+  const nameInput = document.querySelector('#username');
   const locationInput = document.querySelector('#location');
   const registerForm = document.querySelector('#register');
 
@@ -14,14 +14,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const name = nameInput.value;
     const location = locationInput.value;
     const password = passwordInput.value;
-    console.log(email, nameInput, location, password)
+   
 
     try {
       const result = await registerUser(name, email,  password, location);
-      console.log('Login success:', result);
-    //   window.location.href = "http://google.com"
+     
+      window.location.href = "/client/public/src/pages/login.html"
     } catch (err) {
-      console.error('Login failed:', err.message);
+        console.error('Login failed:', err.message);
+        emailInput.value = ""
+        nameInput.value =""
+        locationInput.value = ""
+        passwordInput.value = ""
+
 
     }
   });

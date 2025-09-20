@@ -1,16 +1,6 @@
 
 
 
-
-
-// registerUser("Mike Tson", "TysonMke@gmail.com", "tysonMike823", "Alabama");
-loginUser("TysonMke@gmail.com", "tysonMike823");
-
-
-
-
-
-
 export async function getUsers() {
   try {
     const response = await fetch('http://localhost:3000/api/users/all', {
@@ -51,7 +41,7 @@ export async function registerUser(name, email, password, location) {
     }
 
     const data = await response.json();
-    console.log(data);
+  
     return data;
   } catch (error) {
     console.error('Error registering user:', error.message);
@@ -76,6 +66,7 @@ export async function loginUser(email, password) {
     }
 
     const data = await response.json();
+    console.log(data)
     return data; // <-- return data so caller can use it
   } catch (error) {
     return `Wrong email address or password try gain`
@@ -85,4 +76,4 @@ export async function loginUser(email, password) {
 }
 
 
-loginUser("TysonsBAlass@gmail.com", "tysonMike823");
+// loginUser("TysonsBAlass@gmail.com", "tysonMike823");

@@ -17,8 +17,32 @@ app.use(cors({
 }));
 
 
+
+// // Middleware
+// function AuthenticationMiddleware(req, res, next) {
+//   const authHeader = req.headers["authorization"];
+//   const token = authHeader && authHeader.split(" ")[1];
+
+//   if (!token) {
+//     return res.status(401).json({ message: "Unauthorized" });
+//   }
+
+//   // Verify token (example with JWT)
+//   const jwt = require("jsonwebtoken");
+//   const SECRET_KEY = "mysecret123";
+
+//   jwt.verify(token, SECRET_KEY, (err, user) => {
+//     if (err) return res.status(403).json({ message: "Forbidden" });
+
+//     req.user = user; // attach decoded user info
+//     next(); // pass control to next handler (userRoute)
+//   });
+// }
+
+// Enable JSON body parsing
 app.use(express.json());
 
+// Protect all /api/users routes
 app.use("/api/users", userRoute);
 
 const PORT = process.env.PORT || 3000;
