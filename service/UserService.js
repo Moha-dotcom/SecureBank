@@ -63,6 +63,7 @@ export default class UserService {
       };
     } catch (error) {
       logger.error(`Error logging in: ${error.message}`);
+      return error.message
       throw error;
     }
   }

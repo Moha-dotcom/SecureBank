@@ -7,8 +7,15 @@ import express from "express";
 import bodyParser from "body-parser";
 
 import userRoute from "./routes/UserRoute.js";
+import cors from 'cors';
 
 const app = express();
+app.use(cors({
+  origin: 'http://127.0.0.1:5500', // allow your front-end origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
 
 app.use(express.json());
 

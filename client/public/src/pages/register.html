@@ -21,14 +21,31 @@
     
       <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Sign in to your account</h2>
     </div>
-    <form id="loginForm" action="#" method="POST" class="space-y-6">
-      <div>
+    <form id="register" action="#" method="POST" class="space-y-6 ">
+      <div class="">
+        <!-- name -->
         <div class="col-span-2">
-          <input id="emailaddress" type="email" name="email" required placeholder="Email address" autocomplete="email" aria-label="Email address" class="block w-full rounded-t-md bg-white/5 px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-gray-700 placeholder:text-gray-500 focus:relative focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+          <input id="name" type="text" name="email" required placeholder="Name" autocomplete="email" aria-label="Email address" class="block w-full  bg-white/5 px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-gray-700 placeholder:text-gray-500 focus:relative focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
         </div>
+        <!-- emailaddress -->
         <div class="-mt-px">
-          <input id="password" type="password" name="password" required placeholder="Password" autocomplete="current-password" aria-label="Password" class="block w-full rounded-b-md bg-white/5 px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-gray-700 placeholder:text-gray-500 focus:relative focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+          <input id="emailaddress" type="email" name="emailaddress" required placeholder="Email Address" autocomplete="current-password" aria-label="Password" class="block w-full  bg-white/5 px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-gray-700 placeholder:text-gray-500 focus:relative focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+          
         </div>
+        <!-- password -->
+          <div class="-mt-px">
+          <input id="password" type="password" name="password" required placeholder="Password" autocomplete="current-password" aria-label="Password" class="block w-full  bg-white/5 px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-gray-700 placeholder:text-gray-500 focus:relative focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+          
+        </div>
+       
+        <!-- locaation -->
+         <div class="-mt-px">
+          <input id="location" type="text" name="location" required placeholder="Location" autocomplete="email" aria-label="Email address" class="block w-full  bg-white/5 px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-gray-700 placeholder:text-gray-500 focus:relative focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+        </div> 
+
+
+        
+        
       </div>
 
       <div class="flex items-center justify-between">
@@ -51,19 +68,17 @@
       </div>
 
       <div>
-        <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Sign in</button>
+        <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Register here</button>
       </div>
     </form>
 
-    <p class="text-center text-sm/6 text-gray-400">
-      
-      <a href="./register.html" class="font-semibold text-indigo-400 hover:text-indigo-300">Register here!</a>
-    </p>
+
   </div>
 </div>
 
 
-  <script type="module" src="../../login.js"></script>
+  <script type="module" src="../../register.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 
 
     

@@ -31,9 +31,9 @@ export default class UserRepo {
         
         user.id,
         user.name,
-        user.password,
         user.email,
-        user.location,
+        user.password,
+       
         user.getAccountNum(),
         user.getRoutingNumber()
       ]);

@@ -32,6 +32,7 @@ export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     const result = await UserService.loginUser(email, password);
+    console.log(result)
     
 
     logger.info(`Login result for ${email}: ${result} ` );
