@@ -16,7 +16,7 @@ export async function getUsers() {
     }
 
     const data = await response.json();
-    console.log(data);
+    
     return data; // return data so caller can use it
   } catch (error) {
     console.error('Error fetching users:', error.message);
@@ -67,7 +67,7 @@ export async function loginUser(email, password) {
 
     const data = await response.json();
     console.log(data)
-    return data; // <-- return data so caller can use it
+    return await data
   } catch (error) {
     return `Wrong email address or password try gain`
     // console.error('Error during login:', error.message);

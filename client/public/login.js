@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const result = await loginUser(email, password);
+      window.location.href = "dashboard.html"
       return result
     } catch (err) {
       console.error('Login failed:', err.message);

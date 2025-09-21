@@ -72,7 +72,7 @@ export default class UserService {
   static async getAllUsers(){
     try {
       const users = await UserRepo.getAllUsers();
-      console.log(users)
+ 
       return users;
     } catch (error) {
       logger.error(`Error fetching users: ${error.message}`);
